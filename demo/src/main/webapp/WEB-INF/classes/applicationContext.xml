@@ -104,9 +104,28 @@
 
 	<import resource="classpath:/spring/applicationContext-framework.xml" />
 
-
 	<!-- 缓存配置 -->
 	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="classpath:ehcache-local.xml" />
+	</bean>
+
+
+
+	<bean id="task" class="com.cookie.demo.job.QuartzJob"></bean>
+	<bean id="job" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="task" />
+		<property name="targetMethod" value="work" />
+	</bean>
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="job" />
+		<property name="cronExpression" value="0/5 * * * * ?" />
+	</bean>
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+		<property name="autoStartup" value="true" />
 	</bean>
 </beans>

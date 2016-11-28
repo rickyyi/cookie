@@ -12,6 +12,7 @@
 
     <!--<context:component-scan base-package="com.cookie.demo.controller.*" name-generator="cn.upenny.framework.spring.mvc.FullPackageBeanNameGenerator"/>-->
     <context:component-scan base-package="com.cookie.demo.controller.**"/>
+    <!--<import resource="classpath*:applicationContext.xml"/>-->
     <!-- 启动注解驱动的Spring MVC功能，注册请求url和注解POJO类方法的映射 -->
     <!--<mvc:annotation-driven conversion-service="conversionService">
         <mvc:message-converters>

@@ -23,7 +23,7 @@ public class BorrowTest {
 
     @Transactional(rollbackFor = NullPointerException.class, readOnly = false)
     public static void main(String[] args) throws java.lang.Exception{
-        ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:/applicationContext.xml");
+/*        ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:/applicationContext.xml");
         UserService userService = (UserService) ac.getBean("userServiceImpl");
         User user = new User();
         user.setUsername("zhangsan");
@@ -31,6 +31,6 @@ public class BorrowTest {
         int i = userService.insert(user);
         //Thread.sleep(10000l);
         System.out.print(i);
-        throw new NullPointerException();
+        throw new NullPointerException();*/
     }
 }
