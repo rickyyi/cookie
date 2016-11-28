@@ -115,7 +115,7 @@
 
 
 	<!--quartz定时任务-->
-	<bean id="task" class="com.cookie.demo.job.QuartzJob"></bean>
+	<!--	<bean id="task" class="com.cookie.demo.job.QuartzJob"></bean>
 	<bean id="job" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="task" />
 		<property name="targetMethod" value="work" />
@@ -131,10 +131,10 @@
 			</list>
 		</property>
 		<property name="autoStartup" value="true" />
-	</bean>
+	</bean>-->
 
-	<!--	 具体的实现bean
-	<bean id="demoService" class="com.cookie.demo.service.impl.UserServiceImpl" />-->
+	<!--	具体的实现bean-->
+	<bean id="userService" class="com.cookie.demo.service.impl.UserServiceImpl" />
 
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="cookie_provider"  />
@@ -145,5 +145,5 @@
 	<dubbo:protocol name="dubbo" port="20880" />
 
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.cookie.demo.service.UserService" ref="UserService" />
+	<dubbo:service interface="com.cookie.demo.service.UserService" ref="userService" />
 </beans>

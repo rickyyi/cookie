@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 /**
  * Created by 845477519@qq.com on 2016/11/22 0022.
  */
-@Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
+    public String sayHello(String username) {
+        System.out.print("Hello World! " + username);
+        return "I am return: " + username;
+    }
 }
