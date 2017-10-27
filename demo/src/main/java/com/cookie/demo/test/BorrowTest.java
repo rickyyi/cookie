@@ -1,9 +1,8 @@
 package com.cookie.demo.test;
 
+import com.cookie.demo.entity.User;
 import com.cookie.demo.service.BorrowService;
 import com.cookie.demo.service.UserService;
-import entity.Borrow;
-import entity.User;
 import org.apache.cxf.common.i18n.Exception;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -23,12 +22,13 @@ public class BorrowTest {
 
     @Transactional(rollbackFor = NullPointerException.class, readOnly = false)
     public static void main(String[] args) throws java.lang.Exception{
-/*        ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:/applicationContext.xml");
+        ApplicationContext ac = new FileSystemXmlApplicationContext("classpath:/applicationContext.xml");
         UserService userService = (UserService) ac.getBean("userServiceImpl");
         User user = new User();
         user.setUsername("zhangsan");
         user.setPassword("123");
-        int i = userService.insert(user);
+        userService.getOne(user);
+        /*int i = userService.insert(user);
         //Thread.sleep(10000l);
         System.out.print(i);
         throw new NullPointerException();*/

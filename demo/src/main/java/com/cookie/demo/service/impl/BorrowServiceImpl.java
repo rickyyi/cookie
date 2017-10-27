@@ -1,8 +1,8 @@
 package com.cookie.demo.service.impl;
 
 import cn.upenny.framework.service.impl.BaseServiceImpl;
+import com.cookie.demo.entity.Borrow;
 import com.cookie.demo.service.BorrowService;
-import entity.Borrow;
 import org.springframework.stereotype.Service;
 
 /**

@@ -1,4 +1,4 @@
-package entity;
+package com.cookie.demo.entity;
 
 import cn.upenny.approve.common.enums.LoanType;
 import cn.upenny.framework.entity.BaseEntity;

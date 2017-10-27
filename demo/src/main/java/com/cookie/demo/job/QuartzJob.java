@@ -1,8 +1,7 @@
 package com.cookie.demo.job;
 
+import com.cookie.demo.entity.User;
 import com.cookie.demo.service.UserService;
-import entity.User;
-
 import javax.annotation.Resource;
 
 /**
