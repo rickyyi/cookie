@@ -1,7 +1,7 @@
 package com.cookie.demo.rmi;
 
-import com.cookie.demo.rmi.factory.JavassistProxyFactory;
 import com.cookie.demo.rmi.factory.JdkProxyFactory;
+import com.cookie.demo.rmi.service.TaoBaoService;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +18,7 @@ public class Test implements InitializingBean {
 
     public static void main(String[] args) throws Exception {
         Test test = new Test();
-        UserService userService =  test.get("com.cookie.demo.rmi.UserService");
-        System.out.print(userService.getUser(1L));
+        TaoBaoService taoBaoService =  test.get("com.cookie.demo.rmi.UserService");
     }
 
 
