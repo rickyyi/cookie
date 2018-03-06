@@ -4,13 +4,15 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * Created by 845477519@qq.com on 2017/10/26 0026.
+ *
+ * @author 845477519@qq.com
+ * @date 2017/10/26 0026
  */
-public class InvokerInvocationHandler<T> implements InvocationHandler{
+public class InvokerProxy<T> implements InvocationHandler{
 
     Invoker invoke;
 
-    public InvokerInvocationHandler(Invoker invoke) {
+    public InvokerProxy(Invoker invoke) {
         this.invoke = invoke;
     }
 

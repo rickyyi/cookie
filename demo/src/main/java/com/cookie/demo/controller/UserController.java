@@ -104,8 +104,8 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "get", method =RequestMethod.GET)
     @ResponseBody
-    public Object get() throws IOException {
-        return rmiUserService.getUser(1L);
+    public Object get(long id) throws IOException {
+        return rmiUserService.getUser(id);
     }
 
 }

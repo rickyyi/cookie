@@ -1,7 +1,7 @@
 package com.cookie.demo.rmi.factory;
 
 import com.cookie.demo.rmi.Invoker;
-import com.cookie.demo.rmi.InvokerInvocationHandler;
+import com.cookie.demo.rmi.InvokerProxy;
 import com.cookie.demo.rmi.ProxyFactory;
 
 import java.lang.reflect.InvocationHandler;
@@ -14,7 +14,7 @@ public class JdkProxyFactory implements ProxyFactory {
 
     @Override
     public <T> T getProxy(Invoker invoker, Class<?>[] interfaces) {
-        InvocationHandler handler = new InvokerInvocationHandler(invoker);
+        InvocationHandler handler = new InvokerProxy(invoker);
         return (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), interfaces, handler);
     }
 }

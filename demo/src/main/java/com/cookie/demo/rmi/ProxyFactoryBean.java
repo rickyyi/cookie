@@ -16,6 +16,8 @@ public class ProxyFactoryBean<T> implements FactoryBean, InitializingBean {
 
     private Class<?> objectInterface;
 
+    private ProxyFactory proxyFactory = new JdkProxyFactory();
+
     public ProxyFactoryBean(Class<?> objectInterface) {
         this.objectInterface = objectInterface;
     }
@@ -37,7 +39,6 @@ public class ProxyFactoryBean<T> implements FactoryBean, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        ProxyFactory proxyFactory = new JdkProxyFactory();
         this.instanceObject = proxyFactory.getProxy(new DefaultInvoker(objectInterface), new Class[]{objectInterface});
     }
 }

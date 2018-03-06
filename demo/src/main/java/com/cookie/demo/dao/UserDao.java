@@ -11,7 +11,4 @@ import java.util.Map;
  */
 public interface UserDao extends BaseDao<User> {
 
-
-
-
 }

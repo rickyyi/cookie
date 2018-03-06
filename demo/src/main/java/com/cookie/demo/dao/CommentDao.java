@@ -9,7 +9,4 @@ import com.cookie.demo.entity.User;
  */
 public interface CommentDao extends BaseDao<Comment> {
 
-
-
-
 }
