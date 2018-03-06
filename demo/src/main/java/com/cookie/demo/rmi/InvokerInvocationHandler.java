@@ -16,6 +16,9 @@ public class InvokerInvocationHandler<T> implements InvocationHandler{
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return invoke.invoke(method, args);
+        if (Object.class == method.getDeclaringClass()) {
+            return method.invoke(this, args);
+        }
+        return invoke.execute(method, args);
     }
 }

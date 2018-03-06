@@ -147,13 +147,6 @@
             <artifactId>alipay</artifactId>
             <version>java20171012102412</version>
         </dependency>
-
-        <!-- freeswitch -->
-        <dependency>
-            <groupId>org.freeswitch.esl.client</groupId>
-            <artifactId>org.freeswitch.esl.client</artifactId>
-            <version>0.9.2</version>
-        </dependency>
     </dependencies>
     <build>
         <outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes/</outputDirectory>

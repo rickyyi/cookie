@@ -80,7 +80,6 @@
         <property name='packageBase' value='cn.upenny.approve.web'></property>
     </bean>-->
 
-    <!--<bean id="myBeanPostProcessor" class="com.cookie.demo.spring.MyBeanPostProcessor"/>-->
 
     <bean id="websocket" class="com.cookie.demo.websocket.SystemWebSocketHandler" />
     <websocket:handlers>

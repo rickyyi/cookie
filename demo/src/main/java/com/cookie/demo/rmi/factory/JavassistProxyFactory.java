@@ -32,7 +32,7 @@ public class JavassistProxyFactory implements com.cookie.demo.rmi.ProxyFactory {
             proxyFactory.setHandler(new MethodHandler() {
                 @Override
                 public Object invoke(Object self, Method method, Method proceed, Object[] args) throws Throwable {
-                    return invoker.invoke(method, args);
+                    return invoker.execute(method, args);
                 }
             });
             return (T) proxyFactory.createClass().newInstance();

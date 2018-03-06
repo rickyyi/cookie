@@ -2,22 +2,26 @@ package com.cookie.demo.controller;
 
 import com.cookie.demo.entity.Comment;
 import com.cookie.demo.entity.User;
-import com.cookie.demo.rmi.service.BaiduService;
-import com.cookie.demo.rmi.service.TaoBaoService;
 import com.cookie.demo.service.CommentService;
 import com.cookie.demo.service.UserService;
 import com.cookie.demo.util.EhCacheUtils;
 import com.cookie.demo.websocket.Constants;
 import com.cookie.demo.websocket.SystemWebSocketHandler;
+import com.google.gson.Gson;
+import org.springframework.cache.ehcache.EhCacheCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.socket.TextMessage;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,10 +34,9 @@ public class UserController extends BaseController{
 
     @Resource
     UserService userService;
+
     @Resource
-    TaoBaoService rmiTaoBaoService;
-    @Resource
-    BaiduService rmiBaiduService;
+    com.cookie.demo.rmi.UserService rmiUserService;
 
     @Resource
     SystemWebSocketHandler systemWebSocketHandler;
@@ -99,15 +102,10 @@ public class UserController extends BaseController{
         return systemWebSocketHandler.getOnlineCount();
     }
 
-    @RequestMapping(value = "taobaoSearch", method =RequestMethod.GET)
+    @RequestMapping(value = "get", method =RequestMethod.GET)
     @ResponseBody
-    public Object getTaobaoSearch(String word) throws IOException {
-        return rmiTaoBaoService.search(word);
+    public Object get() throws IOException {
+        return rmiUserService.getUser(1L);
     }
 
-    @RequestMapping(value = "baiduSearch", method =RequestMethod.GET)
-    @ResponseBody
-    public Object getBaiduSearch(String word) throws IOException {
-        return rmiBaiduService.search(word);
-    }
 }
