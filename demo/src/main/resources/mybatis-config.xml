@@ -6,4 +6,22 @@
 		<setting name="lazyLoadingEnabled" value="true"/>
 		<setting name="aggressiveLazyLoading" value="false"/>  <!-- 按需加载对象 -->
 	</settings>
+
+	<typeAliases>
+		<package name="com.cookie.demo.entity"/>
+	</typeAliases>
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/onlinefruitshop" />
+				<property name="username" value="root" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<package name="mapper"/>
+	</mappers>
 </configuration>

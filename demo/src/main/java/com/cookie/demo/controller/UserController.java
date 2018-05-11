@@ -48,8 +48,8 @@ public class UserController extends BaseController{
 
     @RequestMapping(value = "login")
     public @ResponseBody Object login(User user, BindingResult result, Model model, HttpServletRequest httpServletRequest) {
-        super.beanValidator(model, user, user.getClass());
-        /*if (result.hasErrors()) {
+        /*super.beanValidator(model, user, user.getClass());
+        if (result.hasErrors()) {
             return result.getFieldErrors().get(0).getDefaultMessage().toString();
         }*/
         HttpSession httpSession= httpServletRequest.getSession();
@@ -105,7 +105,8 @@ public class UserController extends BaseController{
     @RequestMapping(value = "get", method =RequestMethod.GET)
     @ResponseBody
     public Object get(long id) throws IOException {
-        return rmiUserService.getUser(id);
+        //return rmiUserService.getUser(id);
+        return userService.getDemoAll();
     }
 
 }

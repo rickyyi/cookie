@@ -1,9 +1,9 @@
 package com.cookie.demo.service.impl;
 
 import cn.upenny.framework.service.impl.BaseServiceImpl;
+import com.cookie.demo.dao.DemoDao;
 import com.cookie.demo.dao.UserDao;
 import com.cookie.demo.entity.User;
-import com.cookie.demo.service.BorrowService;
 import com.cookie.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +19,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     @Resource
     UserDao userDao;
 
+    @Resource
+    DemoDao demoDao;
+
     public String sayHello(String username) {
         System.out.print("Hello World! " + username);
         return "I am return: " + username;
@@ -26,5 +29,9 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     public List<User> get() {
         return userDao.getAll();
+    }
+
+    public List getDemoAll() {
+        return demoDao.getAll();
     }
 }

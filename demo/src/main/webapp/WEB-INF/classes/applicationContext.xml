@@ -41,7 +41,7 @@
 		</property>
 	</bean>
 
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+	<bean id="dataSource1" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="url" value="${jdbc.url}" />
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="maxActive" value="${pool.maxPoolSize}" />
@@ -63,6 +63,10 @@
 		<property name="testOnReturn" value="false" />
 		<property name="filters" value="stat,wall" />
 		<property name="timeBetweenLogStatsMillis" value="300000" />
+	</bean>
+
+	<bean id="dataSource" class="com.cookie.demo.test.MyDataSource">
+
 	</bean>
 
 	<!-- 使用JDBC事物 -->
@@ -100,7 +104,7 @@
 
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.cookie.demo.dao" />
+		<property name="basePackage" value="com.cookie.demo.dao, com.cookie.springFramework.myBatis;" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 

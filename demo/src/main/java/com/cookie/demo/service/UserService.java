@@ -12,4 +12,6 @@ public interface UserService extends BaseService<User> {
     public String sayHello(String username);
 
     public List get();
+
+    public List<String> getDemoAll();
 }
